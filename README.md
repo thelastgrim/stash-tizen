@@ -32,6 +32,9 @@ Tabs:
 - **Markers** — scene markers, each previewing its own short clip on focus
 - **Reels** — full-screen vertical-snap feed of scenes (Reels-style)
 
+
+![Home screen](docs/screenshots/home.jpg)
+![Coverflow](docs/screenshots/coverflow.jpg)
 ---
 
 ## Requirements
