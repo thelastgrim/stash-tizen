@@ -159,7 +159,7 @@ Then `source ~/.bashrc` or reopen Git Bash.
 
 ## Install on TV
 
-Two real options. Pick based on how much friction you and your friends can tolerate.
+Two real options, until I manage to post the app on Samsung Store.
 
 ### Option A — Sideload
 
@@ -228,7 +228,7 @@ After install, the app appears in the TV's Apps grid.
 ## Project structure
 
 ```
-stash-tizen-tv-app/
+stash-tizen/
 ├── src/
 │   ├── components/             ← UI components (TabBar, VideoGrid, VideoCard, etc.)
 │   ├── pages/                  ← Top-level routes (HomePage, PerformersPage, MarkersPage, RandomPage)
