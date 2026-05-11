@@ -12,7 +12,7 @@ A 10-foot TV interface for [Stash](https://github.com/stashapp/stash), built for
 4. [Configuring your Stash connection](#configuring-your-stash-connection)
 5. [Building a `.wgt`](#building-a-wgt)
 6. [Install on TV](#install-on-tv)
-   - [Option A — sideload](#option-a--sideload)
+   - [Option A — Sideload](#option-a--sideload)
    - [Option B — TizenBrew](#option-b--tizenbrew)
 7. [Sideload install reference](#sideload-install-reference)
 8. [Project structure](#project-structure)
@@ -161,7 +161,7 @@ Then `source ~/.bashrc` or reopen Git Bash.
 
 Two real options. Pick based on how much friction you and your friends can tolerate.
 
-### Option A — sideload using Tizen Studio
+### Option A — Sideload
 
 The traditional Tizen path. You sign a `.wgt` against a cert profile that includes your TV DUID.
 You install it using Tizen Studio or CLI.
@@ -218,9 +218,6 @@ For people using Option A
 In the Developer Mode dialog, the DUID is shown after a successful toggle. It's a string like `0000000A1B2C3D4E...`.
 
 Alternatively, via CLI after connecting:
-
-
-```
 
 `<device-name-from-sdb>` is whatever appears in the `sdb devices` output for your TV (often the IP with port, e.g. `192.168.1.50:26101`).
 
