@@ -1,0 +1,86 @@
+.control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controlLabel {
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 240px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.inputWrap:hover,
+.inputWrap.focused {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+.inputWrap.focused {
+  box-shadow: var(--focus-ring);
+}
+
+.icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color 0.15s ease-out;
+}
+
+/* The wrapper has the .focused class when the input is focused
+   (set by useFocusable). Pulse the icon while typing-in-focus to
+   signal "search in progress" during the debounce window. */
+.inputWrap.focused .icon {
+  color: var(--accent-bright);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.clearBtn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-base);
+  border: none;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.1s;
+}
+
+.clearBtn:hover {
+  color: var(--text-primary);
+}

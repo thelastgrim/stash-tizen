@@ -1,0 +1,138 @@
+/* =========================================================
+   TV APP — Global Styles
+   Designed for 10-foot UI / Tizen remote navigation
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color Palette */
+  --bg-base:        #0a0a0f;
+  --bg-surface:     #121218;
+  --bg-elevated:    #1c1c26;
+  --bg-card:        #1e1e2a;
+  --bg-card-hover:  #262634;
+
+  --accent:         #4f8ef7;
+  --accent-dim:     #1e3a6e;
+  --accent-bright:  #7aabff;
+
+  --text-primary:   #f0f0f5;
+  --text-secondary: #9090a8;
+  --text-muted:     #55556a;
+
+  --border:         #2a2a3a;
+  --border-focus:   #4f8ef7;
+  --border-strong:  #3a3a50;
+
+  --red:            #e05555;
+  --green:          #4ec97b;
+  --amber:          #f0a030;
+
+  /* Focus ring — thick and clear for TV */
+  --focus-ring: 0 0 0 3px var(--accent), 0 0 0 5px rgba(79, 142, 247, 0.25);
+
+  /* Typography */
+  --font-body:      'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+
+  /* Spacing */
+  --nav-height: 80px;
+  --sidebar-w:  0px;
+  --page-pad:   48px;
+
+  /* Easing */
+  --ease-tv: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Focus Styles ───────────────────────────────────────── */
+/* All focusable elements get a strong ring on TV */
+*:focus {
+  outline: none;
+}
+
+.focusable:focus,
+[data-focusable]:focus {
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+/* ── Scrollbars ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
+
+/* ── Utility ────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* During rapid D-pad navigation, only drop the *expensive* effects:
+   the multi-stop drop-shadow + blur box-shadows that hit the GPU
+   compositor hardest. Transforms (scale) and color/border changes
+   stay animated — those are cheap and they're what makes movement
+   feel fluid rather than rigid. */
+body.is-navigating [class*="focused"] {
+  box-shadow: 0 0 0 3px var(--accent) !important;
+}
+
+/* Also disable any *animations* (CSS @keyframes loops) — those fire
+   continuously and add up. Transitions stay on. */
+body.is-navigating *,
+body.is-navigating *::before,
+body.is-navigating *::after {
+  animation-duration: 0s !important;
+}
+
+body.is-navigating [class*="focused"] {
+  /* Drop the heavy box-shadow glow during navigation. The accent
+     border on focused elements remains, so position is still clear. */
+  box-shadow: 0 0 0 3px var(--accent) !important;
+}
